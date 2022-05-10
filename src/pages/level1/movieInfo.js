@@ -117,7 +117,7 @@ const MovieInfo = () => {
                     </div>
 
                     <button type="submit" className="btn btn-primary" style={{ marginTop: "5px" }}>Submit</button>
-                    <a className="btn btn-primary" style={{ marginTop: "5px" }} href="movielist">movielist</a>
+                    <Link className="btn btn-primary" style={{ marginTop: "5px" }} to="/movielist">movielist</Link>
                 </form>
 
             </div>

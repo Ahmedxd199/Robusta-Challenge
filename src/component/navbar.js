@@ -24,7 +24,7 @@ return (
         <Link className="nav-link text-light" to="/movieinfo">Level1</Link>
       </li>
       <li className="nav-item">
-      <Link className="nav-link text-light" to="/login">level2</Link>
+      <Link className="nav-link text-light" to="/movieinfo2">level2</Link>
       </li>
       <li className="nav-item">
           <Link className="nav-link text-light" to="/signup">level3</Link>  
