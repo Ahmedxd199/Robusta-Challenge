@@ -85,10 +85,7 @@ const MovieList2 = () => {
 
 
     const searchYear = (searchValue) => {
-        // console.log(searchValue)
-    //    setSearchInput(searchValue)
-        
-       
+            setSearchInput(searchValue)
             const filteredData = movies.filter((item) => {
                 if(item.year == searchValue){
                     return item;
