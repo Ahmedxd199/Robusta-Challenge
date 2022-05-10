@@ -3,6 +3,7 @@ import Navbar from './component/navbar';
 import { BrowserRouter as Router , Route , Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import MovieInfo from './pages/level1/movieInfo';
+import MovieList from './pages/level1/movielist';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         
         <Routes>
           <Route path="/movieinfo" element={<MovieInfo />}  />
+          <Route path="/movielist" element={<MovieList />}  />
           {/* <Route path="/" element={<CardView />} />
           <Route path="/login" element={<Login />}  />
           <Route path="/signup" element={<SignUp />}  />
