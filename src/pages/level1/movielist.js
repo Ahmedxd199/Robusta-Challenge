@@ -31,8 +31,8 @@ const MovieList = () => {
 
                         return (
                             <div className="col" key={index}>
-                                <Card style={{ width: '18rem', marginTop: '20px' }}>
-                                    <Card.Header>{movie.moviename}</Card.Header>
+                                <Card style={{ width: '18rem', marginTop: '20px', boxShadow: "0 15px 35px rgba(0, 0, 0, 0.10)" }}>
+                                    <Card.Header className="cardH"><b>{movie.moviename} </b></Card.Header>
                                     <ListGroup variant="flush">
                                         <ListGroup.Item>{movie.movieyear}</ListGroup.Item>
                                         <ListGroup.Item>{movie.moviebudjet}</ListGroup.Item>

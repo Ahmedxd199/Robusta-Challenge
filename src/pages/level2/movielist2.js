@@ -128,19 +128,16 @@ const MovieList2 = () => {
 
 
 
-            <div className="container text-center" style={{ marginTop: "20px", padding: "50px" }}>
+            <div className="container text-center" style={{ marginTop: "20px" }}>
                 <div className="row">
 
                    
 
                         <div className="col-12">
 
-                            <input style={{width:"80%"}}
-                                placeholder='Search...'
-                                onChange={(e) => searchItems(e.target.value)}
-                            />
+                            <input className="input" placeholder='Search...'  onChange={(e) => searchItems(e.target.value)} />
 
-                               <select className="custom-select" id="year" name="year" style={{width:"5%"} }  onChange={(e) => searchYear(e.target.value)} ></select>
+                               <select className="custom-select" id="year" name="year" style={{width:"100px", marginRight:"auto", padding:"11px", borderRadius:"10px", marginLeft:"5px"} }  onChange={(e) => searchYear(e.target.value)} ></select>
 
                         </div>
 
@@ -155,14 +152,14 @@ const MovieList2 = () => {
                         filteredResults.map((item, index) => {
                             return (
                                 <div className="col" key={index}>
-                                    <Card style={{ width: '18rem', marginTop: '20px' }}>
-                                        <Card.Header>{item.title} </Card.Header>
+                                    <Card style={{ width: '18rem', marginTop: '20px', boxShadow: "0 15px 35px rgba(0, 0, 0, 0.10)" }} >
+                                        <Card.Header className="cardH"> <b>{item.title} </b> </Card.Header>
                                         <ListGroup variant="flush">
                                             <ListGroup.Item>{item.year}</ListGroup.Item>
                                             <ListGroup.Item>{item.budget}</ListGroup.Item>
                                             <ListGroup.Item>
-                                                <Link className="btn btn-danger" to={`/editmovie/${item.id}/`}>Edit</Link>
-                                                <button className="btn btn-success" onClick={() => deleteMovie(item.id)} >Delete</button>
+                                                <Link id="btnedit" className="btn btn-danger" to={`/editmovie/${item.id}/`}>Edit</Link>
+                                                <button id="btnDel" className="btn btn-success" onClick={() => deleteMovie(item.id)} >Delete</button>
                                             </ListGroup.Item>
                                         </ListGroup>
                                     </Card>
@@ -174,14 +171,14 @@ const MovieList2 = () => {
                         movies.map((item, index) => {
                             return (
                                 <div className="col" key={index}>
-                                    <Card style={{ width: '18rem', marginTop: '20px' }}>
-                                        <Card.Header>{item.title} </Card.Header>
+                                    <Card style={{ width: '18rem', marginTop: '20px' , boxShadow: "0 15px 35px rgba(0, 0, 0, 0.10)" }}>
+                                        <Card.Header className="cardH"> <b> {item.title} </b> </Card.Header>
                                         <ListGroup variant="flush">
                                             <ListGroup.Item>{item.year}</ListGroup.Item>
                                             <ListGroup.Item>{item.budget}</ListGroup.Item>
                                             <ListGroup.Item>
-                                                <Link className="btn btn-danger" to={`/editmovie/${item.id}/`}>Edit</Link>
-                                                <button className="btn btn-success" onClick={() => deleteMovie(item.id)} >Delete</button>
+                                                <Link id="btnedit" className="btn btn-danger" to={`/editmovie/${item.id}/`}>Edit</Link>
+                                                <button id="btnDel" className="btn btn-success" onClick={() => deleteMovie(item.id)} >Delete</button>
                                             </ListGroup.Item>
                                         </ListGroup>
                                     </Card>

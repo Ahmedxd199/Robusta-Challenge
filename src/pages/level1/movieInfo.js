@@ -100,24 +100,24 @@ const MovieInfo = () => {
 
                 <form onSubmit={saveStorage}>
                     <div className="form-group">
-                        <label htmlFor="moviename">Movie Name</label>
-                        <input type="text" className="form-control" id="moviename" />
+                        <label htmlFor="moviename"><b>Movie Name</b></label>
+                        <input type="text" className="form-control input" id="moviename" />
                     </div>
-                    <div className="input-group mb-3">
+                    <div className="input-group mb-3"  style={{marginTop:"20px"}}>
                         <div className="input-group-prepend">
-                            <label className="input-group-text" htmlFor="year">Movie Year: </label>
+                            <label className="input-group-text" htmlFor="year"><b>Movie Year: </b></label>
                         </div>
                         <select className="custom-select" id="year" name="year"  >
 
                         </select>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="moviename">Movie Budget</label>
-                        <input type="text" className="form-control" id="moviebudjet" />
+                        <label htmlFor="moviename"><b>Movie Budget</b></label>
+                        <input type="text" className="form-control input" id="moviebudjet" />
                     </div>
 
-                    <button type="submit" className="btn btn-primary" style={{ marginTop: "5px" }}>Submit</button>
-                    <Link className="btn btn-primary" style={{ marginTop: "5px" }} to="/movielist">movielist</Link>
+                    <button type="submit" className="btn btnSub " >Submit</button>
+                    <Link className="btn  btnSub"  to="/movielist">movielist</Link>
                 </form>
 
             </div>
