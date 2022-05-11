@@ -7,6 +7,7 @@ import MovieList from './pages/level1/movielist';
 import MovieInfo2 from './pages/level2/movieinfo2';
 import MovieList2 from './pages/level2/movielist2';
 import Editmovie from './pages/level2/editmovie';
+import Home from './pages/home';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
        <Navbar/>
         
         <Routes>
+          <Route path='/' element={<Home/>}/>
           <Route path="/movieinfo" element={<MovieInfo />}  />
           <Route path="/movielist" element={<MovieList />}  />
           <Route path="/movieinfo2" element={<MovieInfo2 />}  />

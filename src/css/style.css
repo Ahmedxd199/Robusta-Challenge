@@ -6,3 +6,37 @@
     padding: 5px;
     width: 100%;
 }
+
+
+#btnedit,#btnDel{
+    margin: 3px;
+    width: 80px;
+    border-radius: 10px;
+}
+.cardH{
+    text-transform: capitalize;
+}
+
+.input{
+    width: 80%;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.btnSub{
+    margin: 3px;
+    width: 120px;
+    border-radius: 10px;
+    background-color: #212529;
+    color: #FFC10C;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 5px;
+    margin-top: 20px;
+}
+
+
+.btnSub:hover{
+
+    color: white;
+}

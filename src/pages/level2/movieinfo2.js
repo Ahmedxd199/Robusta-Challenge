@@ -143,12 +143,12 @@ const MovieInfo2 = () => {
 
                 <form onSubmit={saveIntoApi}>
                     <div className="form-group">
-                        <label htmlFor="moviename">Movie Name</label>
-                        <input type="text" className="form-control" id="moviename" name="moviename" onChange={handleAddFormChange} />
+                        <label htmlFor="moviename"><b>Movie Name </b></label>
+                        <input  type="text" className="form-control input" id="moviename" name="moviename" onChange={handleAddFormChange} />
                     </div>
-                    <div className="input-group mb-3">
+                    <div className="input-group mb-3" style={{marginTop:"20px"}}>
                         <div className="input-group-prepend">
-                            <label className="input-group-text" htmlFor="year">Movie Year: </label>
+                            <label className="input-group-text" htmlFor="year"> <b>Movie Year: </b></label>
                         </div>
                         <select className="custom-select" id="year" name="year" onChange={handleAddFormChange}   >
                         </select>
@@ -157,12 +157,12 @@ const MovieInfo2 = () => {
 
 
                     <div className="form-group">
-                        <label htmlFor="moviename">Movie Budget</label>
-                        <input type="text" className="form-control" id="moviebudjet" name="moviebudjet" onChange={handleAddFormChange} />
+                        <label htmlFor="moviename"><b>Movie Budget</b></label>
+                        <input type="text" className="form-control input" id="moviebudjet" name="moviebudjet" onChange={handleAddFormChange} />
                     </div>
 
-                    <div style={{ marginTop: "5px" }}>
-                        <select style={{ width: "350px" }} size="8" multiple id="category" name="category" onChange={handleAddFormChange} >
+                    <div style={{ marginTop: "25px"  }}>
+                        <select style={{ width: "80%" }} size="8" multiple id="category" name="category" onChange={handleAddFormChange} >
                             {
 
                                 cats.map((cat, index) => {
@@ -182,8 +182,8 @@ const MovieInfo2 = () => {
 
                     <div>
 
-                        <button type="submit" className="btn btn-primary" style={{ marginTop: "5px", marginRight: "5px" }}  >Submit</button>
-                        <Link className="btn btn-primary" style={{ marginTop: "5px" }} to="/movielist2">movielist</Link>
+                        <button type="submit" className="btn  btnSub"  >Submit</button>
+                        <Link className="btn  btnSub"  to="/movielist2">movielist</Link>
 
 
                     </div>
