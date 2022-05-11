@@ -3,12 +3,12 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import '../../css/style.css'
 import axios from "axios";
-import {useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 
 const Editmovie = (props) => {
 
-    const params  = useParams()
+    const params = useParams()
 
     function years() {
 
@@ -28,11 +28,12 @@ const Editmovie = (props) => {
 
     }
 
+    const [errorMessage, setErrorMessage] = useState('');
 
     const [cats, setCat] = useState([]);
 
 
-	const [filmInfo, setInfo] = useState({})
+    const [filmInfo, setInfo] = useState({})
 
     const getCategory = async () => {
         try {
@@ -49,15 +50,15 @@ const Editmovie = (props) => {
     useEffect(() => {
         getCategory()
         years()
-        axios.get(`/movies/${params.id}`).then((res)=> {
-			console.log(res)
-			setInfo(res.data)
+        axios.get(`/movies/${params.id}`).then((res) => {
+            console.log(res)
+            setInfo(res.data)
 
-		})
-		.catch((err) => {
-			console.log(err)
-		})
-	}, [])
+        })
+            .catch((err) => {
+                console.log(err)
+            })
+    }, [])
 
 
 
@@ -83,16 +84,38 @@ const Editmovie = (props) => {
 
 
 
-    let saveIntoApi = async (event , id) => {
+    let saveIntoApi = async (event, id) => {
         event.preventDefault();
         let movieyear = document.getElementById('year').value;
 
         var select = document.getElementById('category');
         var selected = [...select.selectedOptions].map(option => parseInt(option.value));
         console.log(selected, "skjfvibfiojoijvdopkvopdkjvbopkofkbopfj");
+        let moviename = document.getElementById('moviename').value;
+        let moviebudjet = document.getElementById('moviebudjet').value;
+        let err = document.getElementById('error')
 
 
-      
+        if (moviename === null || moviename === "") {
+            setErrorMessage("movie name is required")
+            err.style.visibility = "visible"
+        } else if (movieyear === null || movieyear === "") {
+            setErrorMessage("movieyear is required")
+            err.style.visibility = "visible"
+        } else if (isNaN(movieyear)) {
+            setErrorMessage("movieyear should be a number not text")
+            err.style.visibility = "visible"
+        } else if (moviebudjet === null || moviebudjet === "") {
+            setErrorMessage("moviebudjet is required")
+            err.style.visibility = "visible"
+        } else if (isNaN(moviebudjet)) {
+            setErrorMessage("moviebudjet should be a number not text")
+        } else if (select.value === null || select.value === "") {
+            setErrorMessage("category is required")
+            err.style.visibility = "visible"
+        } else {
+
+
 
             try {
                 axios.put(`/movies/${params.id}`, {
@@ -101,13 +124,17 @@ const Editmovie = (props) => {
                     "budget": parseInt(addFormData.moviebudjet),
                     "category_ids": selected
                 }).then((response) => {
+                    err.style.visibility = "hidden"
                     console.log(response.data)
+
                 })
 
             } catch (error) {
                 console.log(error)
             }
-   
+
+        }
+
 
 
 
@@ -124,28 +151,33 @@ const Editmovie = (props) => {
             <div className="container" style={{ marginTop: "50px" }} >
 
 
+                <div align="center" className="col-12 text-center" id="error" >
+                    <span>{errorMessage}</span>
+                    <br />
+                </div>
+
                 <form onSubmit={saveIntoApi}>
                     <div className="form-group">
-                        <label htmlFor="moviename">Movie Name</label>
-                        <input type="text" className="form-control" id="moviename" name="moviename"  onChange={handleAddFormChange} />
+                        <label htmlFor="moviename"><b>Movie Name</b></label>
+                        <input type="text" className="form-control input" id="moviename" name="moviename" onChange={handleAddFormChange} />
                     </div>
-                    <div className="input-group mb-3">
+                    <div className="input-group mb-3" style={{ marginTop: "20px" }}>
                         <div className="input-group-prepend">
-                            <label className="input-group-text" htmlFor="year">Movie Year: </label>
+                            <label className="input-group-text" htmlFor="year"><b>Movie Year: </b></label>
                         </div>
-                        <select className="custom-select" id="year" name="year"  onChange={handleAddFormChange}   >
+                        <select className="custom-select" id="year" name="year" onChange={handleAddFormChange}   >
                         </select>
                     </div>
 
 
 
                     <div className="form-group">
-                        <label htmlFor="moviename">Movie Budget</label>
-                        <input type="text" className="form-control" id="moviebudjet" name="moviebudjet" onChange={handleAddFormChange} />
+                        <label htmlFor="moviename"><b>Movie Budget</b></label>
+                        <input type="text" className="form-control input" id="moviebudjet" name="moviebudjet" onChange={handleAddFormChange} />
                     </div>
 
-                    <div style={{ marginTop: "5px" }}>
-                        <select style={{ width: "350px" }} size="8" multiple id="category" name="category" onChange={handleAddFormChange} >
+                    <div style={{ marginTop: "25px" }}>
+                        <select style={{ width: "80%" }} size="8" multiple id="category" name="category" onChange={handleAddFormChange} >
                             {
 
                                 cats.map((cat, index) => {
@@ -165,8 +197,8 @@ const Editmovie = (props) => {
 
                     <div>
 
-                        <button type="submit" className="btn btn-primary" style={{ marginTop: "5px", marginRight: "5px" }} >Submit</button>
-                        <Link className="btn btn-primary" style={{ marginTop: "5px" }} to="/movielist2">movielist</Link>
+                        <button type="submit" className="btn btnSub" style={{ marginTop: "5px", marginRight: "5px" }} >Submit</button>
+                        <Link className="btn btnSub" style={{ marginTop: "5px" }} to="/movielist2">movielist</Link>
 
                     </div>
 
